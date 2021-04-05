@@ -1,37 +1,30 @@
 import { rest } from "msw";
+import { shoppingList, itemsList } from "./data";
 
 export const handlers = [
-  rest.get("/shopping_list/:shoppingListId", (req, res, ctx) => {
-    console.log(req);
+  rest.get("/shopping_list/:id", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
-        data: [
-          {
-            name: "Avocado",
-            category: "vegetables",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Chicken 1kg",
-            category: "meat",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Banana",
-            category: "fruit",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Salmon 1kg",
-            category: "fish",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-        ],
+        data: shoppingList,
+      })
+    );
+  }),
+
+  rest.post("/shopping_list", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: shoppingList,
+      })
+    );
+  }),
+
+  rest.patch("/shopping_list", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: shoppingList,
       })
     );
   }),
@@ -40,62 +33,21 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        data: [
-          {
-            name: "Avocado",
-            category: "vegetables",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Chicken 1kg",
-            category: "meat",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Banana",
-            category: "fruit",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Salmon 1kg",
-            category: "fish",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Watermelon",
-            category: "fruit",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Beef",
-            category: "meat",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Tuna",
-            category: "fish",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-          {
-            name: "Carrotes",
-            category: "vegetables",
-            furtherInformation: "Lorem ipsum",
-            image: "imageUrl",
-          },
-        ],
+        data: itemsList,
+      })
+    );
+  }),
+
+  rest.get("/items/:id", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: itemsList.find((item) => item.id === req.params.id),
       })
     );
   }),
 
   rest.post("/items", (req, res, ctx) => {
-    console.log(req);
     return res(
       ctx.status(200),
       ctx.json({
