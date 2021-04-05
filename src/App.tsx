@@ -4,12 +4,15 @@ import { ItemType } from "./types";
 
 import { GETItem } from "./requests";
 
+import { AppLayout } from "./components/AppLayout";
 import { ShoppingList } from "./components/ShoppingList";
 import { ItemsList } from "./components/ItemsList";
 import { ItemForm } from "./components/ItemForm";
 import { ItemDetails } from "./components/ItemDetails";
 
-import { Container } from "@chakra-ui/react";
+export interface IconButtonProps {
+  icon: any;
+}
 
 function App() {
   const [itemId, setItemId] = useState<string>("");
@@ -23,7 +26,7 @@ function App() {
   }, [itemId]);
 
   return (
-    <Container>
+    <AppLayout>
       <ItemsList setItemId={setItemId} itemsToAdd={itemsToAdd} />
       <ItemDetails
         item={item}
@@ -32,7 +35,7 @@ function App() {
       />
       <ShoppingList />
       <ItemForm />
-    </Container>
+    </AppLayout>
   );
 }
 

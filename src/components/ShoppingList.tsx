@@ -14,7 +14,7 @@ export const ShoppingList: React.FC<ShoppingListProps> = () => {
   }, []);
 
   return (
-    <Box bg="red.100" p={4}>
+    <Box p={4}>
       <Heading>Shopping List</Heading>
 
       <UnorderedList>

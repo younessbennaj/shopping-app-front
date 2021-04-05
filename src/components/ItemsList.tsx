@@ -20,7 +20,7 @@ export const ItemsList: React.FC<ItemsListProps> = ({
     });
   }, []);
   return (
-    <Box bg="orange.100" p={4}>
+    <Box p={4}>
       <Heading>Items List</Heading>
       <UnorderedList>
         {items.map((item: ItemType) => {
