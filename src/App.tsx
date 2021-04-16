@@ -10,10 +10,6 @@ import { ItemsList } from "./components/ItemsList";
 import { ItemForm } from "./components/ItemForm";
 import { ItemDetails } from "./components/ItemDetails";
 
-export interface IconButtonProps {
-  icon: any;
-}
-
 function App() {
   const [itemId, setItemId] = useState<string>("");
   const [item, setItem] = useState<ItemType | null>(null);
